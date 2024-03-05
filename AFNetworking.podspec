@@ -19,6 +19,8 @@ Pod::Spec.new do |s|
   s.tvos.pod_target_xcconfig = { 'PRODUCT_BUNDLE_IDENTIFIER' => 'com.alamofire.AFNetworking' }
 
   s.source_files = 'AFNetworking/AFNetworking.h'
+  s.resource_bundles = {'AFNetworking' => ['AFNetworking/PrivacyInfo.xcprivacy']}
+  s.default_subspec = 'NSURLSession'
 
   s.subspec 'Serialization' do |ss|
     ss.source_files = 'AFNetworking/AFURL{Request,Response}Serialization.{h,m}'
@@ -44,7 +46,6 @@ Pod::Spec.new do |s|
     ss.dependency 'AFNetworking/Security'
 
     ss.source_files = 'AFNetworking/AF{URL,HTTP}SessionManager.{h,m}', 'AFNetworking/AFCompatibilityMacros.h'
-    ss.resource_bundles = {'AFNetworking' => ['Source/PrivacyInfo.xcprivacy']}
   end
 
   s.subspec 'UIKit' do |ss|
